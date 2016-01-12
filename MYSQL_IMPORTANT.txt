@@ -1,0 +1,111 @@
+update DL_COURSES
+   set TUITION_AND_FEES = replace(TUITION_AND_FEES,’ <a href="http://controller.vpfa.fsu.edu/Student-Financial-Services/SFS-For-Students/Tuition-Rates" target="_blank">Student Financial Services website</a>’,’ <a href=" http://controller.vpfa.fsu.edu/Student-Business-Services/Student-Business-for-Students/Tuition-Rates" target="_blank">Student Business Services website</a>’);
+
+
+Cojelo suave
+
+
+
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'drupaldb',
+      'username' => 'drupal',
+      'password' => 'Dr00Poo!k',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);
+
+
+
+
+// connect to a mysql
+[root@web jmm11r]# mysql -u drupal -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 287
+Server version: 5.1.73 Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+
+
+
+// select database
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| drupaldb           |
+| test               |
++--------------------+
+3 rows in set (0.01 sec)
+
+// change databases
+mysql> use drupaldb;
+Reading table information for completion of table and column names
+You can turn off this feature to get a qr startup with -A
+
+Database changed
+
+mysql> show tables;
+.
+.
+.
+
+| webform_emails                  |
+| webform_last_download           |
+| webform_roles                   |
+| webform_submissions             |
+| webform_submitted_data          |
+| wysiwyg                         |
+| wysiwyg_user                    |
++---------------------------------+
+126 rows in set (0.00 sec)
+
+mysql> select * from users where name = 'jhernandez';
+
+
+
+| uid  | rid |
++------+-----+
+|    1 |   3 |
+|    2 |   3 |
+|   23 |   3 |
+|   24 |   3 |
+|   29 |   3 |
+|   31 |   3 |
+|  732 |   3 |
+| 1878 |   3 |
+| 1879 |   3 |
+| 1900 |   3 |
+| 1902 |   3 |
+|   32 |   4 |
+|   40 |   4 |
+| 1870 |   4 |
+| 1887 |   4 |
+| 1877 |   5 |
+| 1877 |   6 |
+|   24 |   7 |
+| 1896 |   7 |
+|   24 |   8 |
+
+
+
+
+
+

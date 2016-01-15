@@ -71,8 +71,7 @@ WHERE ASSOCIATION_PK IS NULL;
  FROM JANA_PK 
  WHERE ASSOCIATION_PK IS NULL;
  
-/*THIS STEP NO LONGER NEEDED
-add restricted to majors and main campus data to jana_pk */
+/*add restricted to majors and main campus data to jana_pk */
 UPDATE DRUPAL.JANA_PK pk
 SET pk.RESTRICTED_TO_MAJORS   = (SELECT new.RESTRICTED_TO_MAJORS FROM amber new 
 	WHERE pk.COURSE_NUMBER  = new.COURSE_NUMBER);

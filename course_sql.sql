@@ -110,10 +110,17 @@ DELETE FROM JANA_PK WHERE ROWID NOT IN (SELECT MIN(ROWID) FROM JANA_PK GROUP BY 
 /* Run this to insert course pk and program pk that needs association pk */ 
 /* NOTE!!! The Append comment below is part of the sql statement */
 
- INSERT /*+ APPEND */ INTO DL_PROGRAM_COURSE_ASSOCIATION pka (pka.COURSE_PK, pka.PROGRAM_PK, pka.MAIN_CAMPUS_ONLY, pka.RESTRICTED_TO_MAJORS)
- SELECT COURSE_PK, PROGRAM_PK, MAIN_CAMPUS_ONLY, RESTRICTED_TO_MAJORS
- FROM JANA_PK 
- WHERE ASSOCIATION_PK IS NULL;
+INSERT /*+ APPEND */ 
+    INTO
+        DL_PROGRAM_COURSE_ASSOCIATION pka (pka.COURSE_PK, pka.PROGRAM_PK, pka.MAIN_CAMPUS_ONLY, pka.RESTRICTED_TO_MAJORS)  SELECT
+            COURSE_PK,
+            PROGRAM_PK,
+            MAIN_CAMPUS_ONLY,
+            RESTRICTED_TO_MAJORS  
+        FROM
+            JANA_PK   
+        WHERE
+            ASSOCIATION_PK IS NULL;
 
 /* fix any null campus locations */
 UPDATE JANA_PK SET MAIN_CAMPUS_ONLY = 'n' WHERE PROGRAM_PK = 99 AND MAIN_CAMPUS_ONLY IS NULL;
